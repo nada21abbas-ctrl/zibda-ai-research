@@ -1,24 +1,24 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Search } from "lucide-react";
-import heroImg from "@/assets/zubda-hero.png";
+import mascotImg from "@/assets/zubda-mascot.png";
+import heroBg from "@/assets/zubda-hero-bg.png";
 import searchIcon from "@/assets/zubda-search-icon.png";
 import chatIcon from "@/assets/zubda-chat-icon.png";
 import summaryIcon from "@/assets/zubda-summary-icon.png";
 import verifyIcon from "@/assets/zubda-verify-icon.png";
 import exportIcon from "@/assets/zubda-export-icon.png";
-import globeIcon from "@/assets/zubda-globe-icon.png";
 
 const features = [
   {
     icon: searchIcon,
     title: "بحث متعدد المصادر",
-    description: "بحث شامل في قواعد البيانات العلمية العربية والدولية مع دعم الترجمة التلقائية",
+    description: "بحث شامل في قواعد البيانات العلمية العربية والدولية",
   },
   {
     icon: summaryIcon,
     title: "تلخيص ذكي",
-    description: "تلخيص تلقائي للأبحاث مع إبراز النقاط الرئيسية والاستنتاجات المهمة",
+    description: "تلخيص تلقائي للأبحاث مع إبراز النقاط الرئيسية والاستنتاجات",
   },
   {
     icon: verifyIcon,
@@ -28,25 +28,20 @@ const features = [
   {
     icon: chatIcon,
     title: "دردشة تفاعلية",
-    description: "محادثة مع مساعد ذكي للإجابة على الأسئلة والاستفسارات المتابعة",
+    description: "محادثة مع مساعد ذكي للإجابة على الأسئلة والاستفسارات البحثية",
   },
   {
     icon: exportIcon,
     title: "تصدير احترافي",
     description: "تصدير بصيغ متعددة (PDF, Word, BibTeX) مع التوثيق التلقائي",
   },
-  {
-    icon: globeIcon,
-    title: "دعم ثنائي اللغة",
-    description: "دعم كامل للغتين العربية والإنجليزية مع ترجمة تلقائية متقدمة",
-  },
 ];
 
 const steps = [
-  { num: "١", title: "اطرح سؤالك بالعربية أو الإنجليزية", desc: "يفهم النظام استفسارك ويحوّله إلى تمثيل دلالي للبحث في قواعد البيانات العلمية." },
-  { num: "٢", title: "استرجاع ذكي من المصادر العلمية", desc: "يبحث في ملايين الأوراق البحثية ويختار الأكثر صلةً بسؤالك." },
-  { num: "٣", title: "توليد إجابة مدعّمة بالمصادر", desc: "يستخدم الذكاء الاصطناعي المستندات المسترجعة لصياغة إجابة دقيقة مع الاستشهاد بالمراجع." },
-  { num: "٤", title: "أسئلة متابعة تفاعلية", desc: "تابع الحوار العلمي وعمّق فهمك بأسئلة إضافية في نفس الجلسة." },
+  { num: "١", title: "اطرح سؤالك البحثي", desc: "اكتب سؤالك أو موضوع البحث الذي تريد استكشافه." },
+  { num: "٢", title: "استرجاع ذكي من المصادر", desc: "يبحث النظام في ملايين الأوراق البحثية ويختار الأكثر صلة." },
+  { num: "٣", title: "إجابة مدعّمة بالمصادر", desc: "يصيغ الذكاء الاصطناعي إجابة دقيقة مع الاستشهاد بالمراجع." },
+  { num: "٤", title: "تابع الحوار وعمّق فهمك", desc: "اطرح أسئلة متابعة وتعمّق أكثر في موضوعك البحثي." },
 ];
 
 const Index = () => {
@@ -62,12 +57,17 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Navy */}
-      <section className="relative bg-navy min-h-[90vh] flex items-center justify-center overflow-hidden py-24">
-        {/* Background effects */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_20%_50%,_hsl(var(--gold)/0.08)_0%,_transparent_60%),_radial-gradient(ellipse_50%_60%_at_80%_30%,_hsl(var(--navy-light)/0.6)_0%,_transparent_60%)]" />
-        <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(hsl(var(--gold) / 0.04) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--gold) / 0.04) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-        <div className="absolute left-[-80px] top-1/2 -translate-y-1/2 font-amiri text-[300px] text-gold/[0.04] leading-none pointer-events-none select-none">ز</div>
+      {/* Hero Section with Arabic calligraphy background */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-24">
+        {/* Background image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroBg})` }}
+        />
+        {/* Overlay for readability */}
+        <div className="absolute inset-0 bg-navy/80" />
+        {/* Subtle radial glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,_hsl(var(--gold)/0.08)_0%,_transparent_60%)]" />
 
         <div className="relative z-10 max-w-[800px] text-center px-4">
           {/* Badge */}
@@ -76,12 +76,15 @@ const Index = () => {
             منصة بحث علمية ذكية بالذكاء الاصطناعي
           </div>
 
-          <img src={heroImg} alt="زِبدة" className="w-32 h-32 mx-auto mb-6 animate-float" width={128} height={128} />
+          {/* Mascot */}
+          <img src={mascotImg} alt="زِبدة" className="w-36 h-36 mx-auto mb-6 animate-float drop-shadow-2xl" width={144} height={144} />
 
           <h1 className="font-amiri text-white text-[clamp(48px,8vw,80px)] leading-[1.1] mb-3 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            ابحث. افهم. اكتشف.
-            <span className="block text-gold-light text-[clamp(32px,5vw,52px)] mt-1">بالعربية والإنجليزية</span>
+            مشروع الزُّبدة
           </h1>
+          <p className="text-gold-light text-[clamp(18px,3vw,24px)] font-amiri mb-4 animate-fade-in-up" style={{ animationDelay: '0.15s' }}>
+            مساعدك الذكي للبحث العلمي
+          </p>
 
           <p className="text-white/60 text-[clamp(15px,2vw,18px)] leading-relaxed max-w-[620px] mx-auto mb-12 font-light animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             منصة بحث علمية ذكية تجمع بين محركات البحث المتقدمة والذكاء الاصطناعي
@@ -103,22 +106,17 @@ const Index = () => {
             </button>
           </form>
 
-          {/* Stats */}
-          <div className="flex justify-center gap-12 mt-16 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <div className="text-center">
-              <span className="font-amiri text-gold-light text-4xl font-bold block">+٥٠م</span>
-              <span className="text-white/45 text-xs mt-1">ورقة بحثية مفهرسة</span>
-            </div>
-            <div className="w-px bg-gold/20 self-stretch" />
-            <div className="text-center">
-              <span className="font-amiri text-gold-light text-4xl font-bold block">٢</span>
-              <span className="text-white/45 text-xs mt-1">لغة مدعومة</span>
-            </div>
-            <div className="w-px bg-gold/20 self-stretch" />
-            <div className="text-center">
-              <span className="font-amiri text-gold-light text-4xl font-bold block">RAG</span>
-              <span className="text-white/45 text-xs mt-1">استرجاع معزّز بالتوليد</span>
-            </div>
+          {/* Quick links */}
+          <div className="flex justify-center gap-6 mt-10 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            <Link to="/about" className="text-gold-light/80 hover:text-gold-light text-sm transition-colors border-b border-gold/20 hover:border-gold/50 pb-0.5">
+              الرؤية والرسالة
+            </Link>
+            <Link to="/chat" className="text-gold-light/80 hover:text-gold-light text-sm transition-colors border-b border-gold/20 hover:border-gold/50 pb-0.5">
+              المحادثة الذكية
+            </Link>
+            <Link to="/search" className="text-gold-light/80 hover:text-gold-light text-sm transition-colors border-b border-gold/20 hover:border-gold/50 pb-0.5">
+              تصفّح الأبحاث
+            </Link>
           </div>
         </div>
       </section>
@@ -157,7 +155,7 @@ const Index = () => {
                 <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
                 <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
                 <div className="flex-1 bg-white/5 rounded-md h-6 mr-3 flex items-center px-3">
-                  <span className="text-[11px] text-white/30" dir="ltr">zubda.ai/chat</span>
+                  <span className="text-[11px] text-white/30">زِبدة — المحادثة الذكية</span>
                 </div>
               </div>
               <div className="p-6 space-y-4">
@@ -185,7 +183,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Grid - Navy */}
+      {/* Features Grid */}
       <section className="bg-navy py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_100%,_hsl(var(--gold)/0.06)_0%,_transparent_70%)]" />
         <div className="container mx-auto px-4 relative z-10">
@@ -195,15 +193,15 @@ const Index = () => {
             <p className="text-white/50 max-w-[560px] mx-auto">كل ما يحتاجه الباحث في منصة واحدة</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-0.5 max-w-[1200px] mx-auto">
+          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-0.5 max-w-[1200px] mx-auto">
             {features.map((f, i) => (
               <div
                 key={i}
-                className="group bg-white/[0.03] border border-gold/10 p-10 transition-all hover:bg-white/[0.06] hover:border-gold/25 relative overflow-hidden first:rounded-tr-2xl [&:nth-child(3)]:rounded-tl-2xl [&:nth-child(4)]:rounded-br-2xl last:rounded-bl-2xl"
+                className="group bg-white/[0.03] border border-gold/10 p-8 transition-all hover:bg-white/[0.06] hover:border-gold/25 relative overflow-hidden first:rounded-tr-2xl last:rounded-tl-2xl"
               >
                 <div className="absolute top-0 right-0 left-0 h-0.5 bg-gradient-to-l from-transparent via-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <img src={f.icon} alt="" className="w-16 h-16 mb-5" loading="lazy" width={64} height={64} />
-                <h3 className="text-white text-lg font-bold mb-3">{f.title}</h3>
+                <img src={f.icon} alt="" className="w-14 h-14 mb-4" loading="lazy" width={56} height={56} />
+                <h3 className="text-white text-base font-bold mb-2">{f.title}</h3>
                 <p className="text-white/45 text-sm leading-relaxed font-light">{f.description}</p>
               </div>
             ))}

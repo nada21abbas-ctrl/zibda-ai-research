@@ -1,20 +1,26 @@
 import { Link } from "react-router-dom";
-import heroImg from "@/assets/zubda-hero.png";
+import mascotImg from "@/assets/zubda-mascot.png";
 import searchIcon from "@/assets/zubda-search-icon.png";
 import chatIcon from "@/assets/zubda-chat-icon.png";
 import summaryIcon from "@/assets/zubda-summary-icon.png";
 import verifyIcon from "@/assets/zubda-verify-icon.png";
+import iconMission from "@/assets/icon-mission.png";
+import iconVision from "@/assets/icon-vision.png";
+import iconValues from "@/assets/icon-values.png";
 
 const values = [
   {
+    icon: iconMission,
     title: "رسالتنا",
     description: "تمكين الباحث العربي من الوصول إلى المعرفة العلمية بلغته الأم، وتقديم أدوات بحثية ذكية تختصر الوقت وتعزز جودة البحث الأكاديمي.",
   },
   {
+    icon: iconVision,
     title: "رؤيتنا",
     description: "أن نكون المنصة الأولى للبحث العلمي باللغة العربية، ونسهم في بناء مجتمع معرفي عربي متقدم ومتصل بأحدث الإنجازات العلمية.",
   },
   {
+    icon: iconValues,
     title: "قيمنا",
     description: "الدقة العلمية، الشفافية في المصادر، الموثوقية الأكاديمية، وسهولة الوصول للمعرفة للجميع.",
   },
@@ -33,7 +39,7 @@ const AboutPage = () => (
     <section className="bg-navy py-20 text-center relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_500px_at_50%_50%,_hsl(var(--gold)/0.07)_0%,_transparent_70%)]" />
       <div className="relative z-10 container mx-auto px-4">
-        <img src={heroImg} alt="" className="w-28 h-28 mx-auto mb-5 animate-float" width={112} height={112} />
+        <img src={mascotImg} alt="زِبدة" className="w-28 h-28 mx-auto mb-5 animate-float drop-shadow-2xl" width={112} height={112} />
         <h1 className="font-amiri text-4xl font-bold text-white mb-4">عن زِبدة</h1>
         <p className="text-white/60 max-w-2xl mx-auto leading-relaxed text-lg font-light">
           زِبدة هي منصة بحث علمي ذكية مصمّمة خصيصاً للباحثين الناطقين بالعربية.
@@ -48,9 +54,7 @@ const AboutPage = () => (
         <div className="grid md:grid-cols-3 gap-8 max-w-[1100px] mx-auto">
           {values.map((v, i) => (
             <div key={i} className="bg-white rounded-xl p-8 border border-beige-dark hover:border-gold/30 hover:shadow-lg transition-all text-center">
-              <div className="w-14 h-14 rounded-full bg-navy flex items-center justify-center mx-auto mb-5">
-                <span className="font-amiri text-gold-light text-xl font-bold">{i === 0 ? "ر" : i === 1 ? "ع" : "ق"}</span>
-              </div>
+              <img src={v.icon} alt="" className="w-20 h-20 mx-auto mb-5" loading="lazy" width={80} height={80} />
               <h3 className="font-bold text-xl mb-3 text-navy">{v.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{v.description}</p>
             </div>
