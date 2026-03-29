@@ -1,43 +1,55 @@
 import { Link, useLocation } from "react-router-dom";
 import { Search, MessageCircle, Home, BookOpen } from "lucide-react";
-import mascotImg from "@/assets/zubda-mascot.png";
 
 const navItems = [
   { path: "/", label: "الرئيسية", icon: Home },
   { path: "/search", label: "البحث", icon: Search },
   { path: "/chat", label: "المحادثة الذكية", icon: MessageCircle },
-  { path: "/about", label: "عن زبِدة", icon: BookOpen },
+  { path: "/about", label: "عن زِبدة", icon: BookOpen },
 ];
 
 const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-gold-light">
-      <div className="container mx-auto px-4 flex items-center justify-between h-16">
-        <Link to="/" className="flex items-center gap-2 group">
-          <img src={mascotImg} alt="زبِدة" className="w-10 h-10 group-hover:animate-float" width={40} height={40} />
-          <span className="text-2xl font-bold font-amiri text-gold-dark">زبِدة</span>
+    <nav className="sticky top-0 z-50 bg-navy/[0.97] backdrop-blur-xl border-b border-gold/20">
+      <div className="container mx-auto px-4 flex items-center justify-between h-[70px]">
+        <Link to="/" className="flex items-center gap-3 group">
+          <div className="w-[42px] h-[42px] gradient-gold rounded-[10px] flex items-center justify-center font-amiri text-[22px] font-bold text-navy shadow-gold">
+            ز
+          </div>
+          <span className="text-[26px] font-amiri text-white">
+            زِبْ<span className="text-gold-light">دة</span>
+          </span>
         </Link>
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-8">
           {navItems.map((item) => {
             const isActive = location.pathname === item.path;
             return (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`relative flex items-center gap-2 text-[15px] font-medium transition-colors duration-200 ${
                   isActive
-                    ? "gradient-gold text-primary-foreground shadow-gold"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                    ? "text-white"
+                    : "text-white/60 hover:text-white"
                 }`}
               >
-                <item.icon size={18} />
+                <item.icon size={16} />
                 <span className="hidden md:inline">{item.label}</span>
+                {isActive && (
+                  <span className="absolute -bottom-1 right-0 w-full h-[1px] bg-gold-light" />
+                )}
               </Link>
             );
           })}
+          <Link
+            to="/search"
+            className="gradient-gold text-navy px-5 py-2 rounded-md font-bold text-sm hover:opacity-90 transition-opacity shadow-gold"
+          >
+            ابدأ البحث
+          </Link>
         </div>
       </div>
     </nav>

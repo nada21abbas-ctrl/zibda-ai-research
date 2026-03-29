@@ -1,18 +1,37 @@
-import mascotImg from "@/assets/zubda-mascot.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => (
-  <footer className="bg-cream-dark border-t border-gold-light py-8 mt-12">
-    <div className="container mx-auto px-4 text-center">
-      <div className="flex items-center justify-center gap-2 mb-3">
-        <img src={mascotImg} alt="زبِدة" className="w-8 h-8" width={32} height={32} />
-        <span className="font-amiri text-xl font-bold text-gold-dark">زبِدة</span>
+  <footer className="bg-[#070f18] border-t border-gold/10 pt-14 pb-8">
+    <div className="container mx-auto px-4">
+      <div className="grid md:grid-cols-3 gap-16 pb-10 border-b border-white/[0.06] mb-8">
+        <div>
+          <span className="font-amiri text-[30px] text-white block mb-4">
+            زِبْ<span className="text-gold-light">دة</span>
+          </span>
+          <p className="text-white/35 text-sm leading-relaxed max-w-[280px]">
+            مساعد البحث العلمي التفاعلي باللغة العربية — يجمع بين قوة الذكاء الاصطناعي ومحركات البحث الأكاديمية المتقدمة.
+          </p>
+        </div>
+        <div>
+          <h4 className="text-white/60 text-xs font-bold tracking-widest uppercase mb-5">المنصة</h4>
+          <ul className="space-y-2.5">
+            <li><Link to="/search" className="text-white/40 text-sm hover:text-gold-light transition-colors">البحث العلمي</Link></li>
+            <li><Link to="/chat" className="text-white/40 text-sm hover:text-gold-light transition-colors">المحادثة الذكية</Link></li>
+            <li><Link to="/about" className="text-white/40 text-sm hover:text-gold-light transition-colors">عن زِبدة</Link></li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="text-white/60 text-xs font-bold tracking-widest uppercase mb-5">المشروع</h4>
+          <ul className="space-y-2.5">
+            <li><Link to="/about" className="text-white/40 text-sm hover:text-gold-light transition-colors">الرسالة والرؤية</Link></li>
+            <li><Link to="/about" className="text-white/40 text-sm hover:text-gold-light transition-colors">إمكانيات المنصة</Link></li>
+          </ul>
+        </div>
       </div>
-      <p className="text-muted-foreground text-sm">
-        مساعدك الذكي للبحث العلمي باللغة العربية
-      </p>
-      <p className="text-muted-foreground text-xs mt-2">
-        © {new Date().getFullYear()} زبِدة — جميع الحقوق محفوظة
-      </p>
+      <div className="flex justify-between items-center">
+        <p className="text-white/25 text-[13px]">© {new Date().getFullYear()} مشروع زِبدة — جميع الحقوق محفوظة</p>
+        <span className="font-amiri text-gold text-base">زِبدة العلم</span>
+      </div>
     </div>
   </footer>
 );

@@ -6,53 +6,56 @@
 
 @layer base {
   :root {
-    --background: 43 30% 97%;
-    --foreground: 30 25% 15%;
+    --background: 40 80% 96%;
+    --foreground: 216 100% 11%;
 
-    --card: 40 40% 96%;
-    --card-foreground: 30 25% 15%;
+    --card: 38 42% 90%;
+    --card-foreground: 216 100% 11%;
 
-    --popover: 40 40% 96%;
-    --popover-foreground: 30 25% 15%;
+    --popover: 40 80% 96%;
+    --popover-foreground: 216 100% 11%;
 
-    --primary: 38 80% 50%;
-    --primary-foreground: 40 20% 98%;
+    --primary: 39 67% 28%;
+    --primary-foreground: 40 80% 96%;
 
-    --secondary: 35 30% 90%;
-    --secondary-foreground: 30 25% 20%;
+    --secondary: 36 38% 82%;
+    --secondary-foreground: 216 100% 11%;
 
-    --muted: 40 20% 93%;
-    --muted-foreground: 30 15% 45%;
+    --muted: 38 42% 90%;
+    --muted-foreground: 210 20% 40%;
 
-    --accent: 28 70% 55%;
-    --accent-foreground: 40 20% 98%;
+    --accent: 39 60% 59%;
+    --accent-foreground: 216 100% 11%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 38 30% 85%;
-    --input: 38 30% 85%;
-    --ring: 38 80% 50%;
+    --border: 36 33% 70%;
+    --input: 36 33% 70%;
+    --ring: 39 67% 28%;
 
     --radius: 0.75rem;
 
-    --gold: 38 80% 50%;
-    --gold-light: 42 70% 75%;
-    --gold-dark: 32 85% 35%;
-    --cream: 43 40% 95%;
-    --cream-dark: 38 25% 88%;
-    --honey: 28 70% 55%;
-    --butter: 48 90% 65%;
-    --butter-light: 50 80% 85%;
+    --navy: 216 100% 11%;
+    --navy-mid: 210 44% 19%;
+    --navy-light: 207 37% 24%;
+    --navy-muted: 205 37% 29%;
+    --gold: 39 52% 47%;
+    --gold-light: 39 60% 59%;
+    --gold-dark: 39 67% 28%;
+    --beige-lightest: 37 53% 96%;
+    --beige-light: 38 42% 90%;
+    --beige: 36 38% 82%;
+    --beige-dark: 36 33% 70%;
 
-    --sidebar-background: 40 30% 95%;
-    --sidebar-foreground: 30 25% 20%;
-    --sidebar-primary: 38 80% 50%;
-    --sidebar-primary-foreground: 40 20% 98%;
-    --sidebar-accent: 35 30% 90%;
-    --sidebar-accent-foreground: 30 25% 20%;
-    --sidebar-border: 38 30% 85%;
-    --sidebar-ring: 38 80% 50%;
+    --sidebar-background: 38 42% 90%;
+    --sidebar-foreground: 216 100% 11%;
+    --sidebar-primary: 39 67% 28%;
+    --sidebar-primary-foreground: 40 80% 96%;
+    --sidebar-accent: 36 38% 82%;
+    --sidebar-accent-foreground: 216 100% 11%;
+    --sidebar-border: 36 33% 70%;
+    --sidebar-ring: 39 67% 28%;
   }
 }
 
@@ -63,6 +66,7 @@
 
   html {
     direction: rtl;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -79,40 +83,60 @@
     font-family: 'Tajawal', sans-serif;
   }
 
-  .gradient-gold {
-    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--honey)) 100%);
+  .bg-navy {
+    background-color: hsl(var(--navy));
   }
 
-  .gradient-cream {
-    background: linear-gradient(180deg, hsl(var(--cream)) 0%, hsl(var(--cream-dark)) 100%);
+  .bg-navy-mid {
+    background-color: hsl(var(--navy-mid));
   }
 
-  .gradient-butter {
-    background: linear-gradient(135deg, hsl(var(--butter-light)) 0%, hsl(var(--butter)) 50%, hsl(var(--gold-light)) 100%);
+  .text-navy {
+    color: hsl(var(--navy));
   }
 
   .text-gold {
     color: hsl(var(--gold));
   }
 
+  .text-gold-light {
+    color: hsl(var(--gold-light));
+  }
+
   .text-gold-dark {
     color: hsl(var(--gold-dark));
   }
 
-  .bg-cream {
-    background-color: hsl(var(--cream));
+  .bg-beige-lightest {
+    background-color: hsl(var(--beige-lightest));
   }
 
-  .bg-cream-dark {
-    background-color: hsl(var(--cream-dark));
+  .bg-beige-light {
+    background-color: hsl(var(--beige-light));
+  }
+
+  .bg-beige {
+    background-color: hsl(var(--beige));
   }
 
   .border-gold {
+    border-color: hsl(var(--gold));
+  }
+
+  .border-gold-light {
     border-color: hsl(var(--gold-light));
   }
 
+  .border-gold-subtle {
+    border-color: hsl(var(--gold) / 0.2);
+  }
+
+  .gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%);
+  }
+
   .shadow-gold {
-    box-shadow: 0 4px 20px -4px hsl(var(--gold) / 0.3);
+    box-shadow: 0 8px 24px hsl(var(--gold) / 0.3);
   }
 
   .ornament-border {
